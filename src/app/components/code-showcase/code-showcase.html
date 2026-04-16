@@ -1,0 +1,68 @@
+<section class="showcase" id="showcase">
+    <div class="container">
+        <div class="showcase__header">
+            <p class="section-label">Código</p>
+            <h2 class="section-title">Expresivo por diseño</h2>
+            <p class="section-subtitle">
+                Sintaxis clara y legible. El IDE resalta variables mutables,
+                DocBlocks y auto-importa lo que necesitas.
+            </p>
+        </div>
+
+        <div class="showcase__editor">
+            <!-- Tab bar -->
+            <div class="showcase__tabbar">
+                <div class="showcase__dots" aria-hidden="true">
+                    <span class="showcase__dot showcase__dot--red"></span>
+                    <span class="showcase__dot showcase__dot--yellow"></span>
+                    <span class="showcase__dot showcase__dot--green"></span>
+                </div>
+                <div class="showcase__tabs">
+                    @for (tab of tabs; track tab.id) {
+                        <button
+                            class="showcase__tab"
+                            [class.showcase__tab--active]="activeTab() === tab.id"
+                            (click)="selectTab(tab.id)">
+                            {{ tab.label }}
+                        </button>
+                    }
+                </div>
+                <span class="showcase__filename">{{ currentTab.filename }}</span>
+            </div>
+
+            <!-- Code area -->
+            <div class="showcase__body">
+                <div class="showcase__gutter" aria-hidden="true">
+                    @for (n of lineNumbers; track n) {
+                        <span>{{ n }}</span>
+                    }
+                </div>
+                <!-- innerHTML sin whitespace espurio entre tokens -->
+                <pre class="showcase__code"><code [innerHTML]="codeHtml()"></code></pre>
+            </div>
+
+            <!-- Status bar -->
+            <div class="showcase__statusbar">
+                <span>AlcaparraLang</span>
+                <span>LSP ✓</span>
+                <span>UTF-8</span>
+                <span>Ln 1, Col 1</span>
+            </div>
+        </div>
+
+        <!-- IDE badges -->
+        <div class="showcase__ides">
+            <div class="showcase__ide-badge">
+                <img src="images/vscode-alt.svg" alt="VSCode" class="showcase__ide-badge__logo">
+                VS Code
+            </div>
+            <div class="showcase__ide-badge">
+                <img src="images/jetbrains.svg" alt="VSCode" class="showcase__ide-badge__logo">
+            </div>
+            <div class="showcase__ide-badge">
+                <img src="images/logo-icon.png" alt="VSCode" class="showcase__ide-badge__logo">
+                LSP estándar
+            </div>
+        </div>
+    </div>
+</section>

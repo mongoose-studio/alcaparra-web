@@ -1,0 +1,96 @@
+<section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+        <div class="hero__orb hero__orb--1"></div>
+        <div class="hero__orb hero__orb--2"></div>
+        <div class="hero__orb hero__orb--3"></div>
+        <div class="hero__grid-bg"></div>
+    </div>
+
+    <div class="container hero__inner">
+        <div class="hero__content">
+            <div class="chip hero__chip">
+                <b>v0.1.0</b> — Early Access
+            </div>
+
+            <h1 class="hero__title font-brand">
+                El lenguaje para <span class="hero__accent hero__accent--rotating gradient-text"
+                                       [class.hero__accent--out]="animating()">{{ currentPhrase }}</span>
+            </h1>
+
+            <p class="hero__subtitle">
+                <b class="b-caper">AlcaparraLang</b> es un lenguaje embebible de propósito
+                específico para lógica de negocio determinista. Sin acceso a I/O, sin estado global,
+                sin efectos secundarios: un script recibe un contexto de datos, ejecuta un grafo de
+                transformaciones puras y emite un resultado JSON estructurado. La inmutabilidad es
+                explícita (<code>let</code> vs <code>var</code>), los imports son acíclicos y el
+                runtime garantiza idempotencia por construcción — no por convención.
+            </p>
+
+            <div class="hero__ctas">
+                <a href="#downloads" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="2.5">
+                        <path
+                            d="M12 15V3m0 12-4-4m4 4 4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17" />
+                    </svg>
+                    Descargar
+                </a>
+                <a href="https://github.com/mongoose-studio/alcaparra-lang" target="_blank" rel="noopener"
+                   class="btn btn-outline">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                    </svg>
+                    Ver en GitHub
+                </a>
+            </div>
+
+            <div class="hero__stats">
+                <div class="hero__stat">
+                    <span class="hero__stat-value">120+</span>
+                    <span class="hero__stat-label">funciones stdlib</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-value">3</span>
+                    <span class="hero__stat-label">plataformas</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-value">MIT</span>
+                    <span class="hero__stat-label">licencia</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code preview — { } escapados como entidades para no confundir al compilador Angular -->
+        <div class="hero__preview">
+            <div class="hero__preview-bar">
+                <span class="hero__preview-dot hero__preview-dot--red"></span>
+                <span class="hero__preview-dot hero__preview-dot--yellow"></span>
+                <span class="hero__preview-dot hero__preview-dot--green"></span>
+                <span class="hero__preview-filename">bono.caper</span>
+            </div>
+            <pre class="hero__code"><code><span class="s-doc">/// Calcula el bono mensual.</span>
+<span class="s-doc">/// </span><span class="s-tag">&#64;param</span><span class="s-doc"> base   Sueldo base</span>
+<span class="s-doc">/// </span><span class="s-tag">&#64;param</span><span
+                    class="s-doc"> factor Porcentaje (0&#8211;1)</span>
+<span class="s-kw">fn</span> <span class="s-fn">calcular_bono</span>(<span class="s-var">base</span>, <span
+                    class="s-var">factor</span>) &#123;
+    <span class="s-kw">let</span> <span class="s-var">tope</span> = <span class="s-num">500_000</span>;
+    <span class="s-kw">var</span> <span class="s-mut">resultado</span> = <span class="s-var">base</span> * <span
+                    class="s-var">factor</span>;
+    <span class="s-kw">if</span> <span class="s-mut">resultado</span> &gt; <span class="s-var">tope</span> &#123;
+        <span class="s-mut">resultado</span> = <span class="s-var">tope</span>;
+    &#125;
+    <span class="s-kw">emit</span> <span class="s-mut">resultado</span>;
+&#125;
+
+<span class="s-kw">main</span> &#123;
+    <span class="s-kw">let</span> <span class="s-var">bono</span> = <span class="s-fn">calcular_bono</span>(SUELDO_BASE, <span
+                    class="s-num">0.15</span>);
+    <span class="s-kw">emit</span> &#123; bono: <span class="s-var">bono</span> &#125;;
+&#125;</code></pre>
+        </div>
+    </div>
+</section>

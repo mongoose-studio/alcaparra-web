@@ -1,0 +1,50 @@
+.support {
+  padding: 64px 0;
+
+  &__card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    background: linear-gradient(135deg, var(--bg-1) 0%, #2a2020 100%);
+    border: 1px solid #5a3030;
+    border-radius: var(--radius-lg);
+    padding: 40px 48px;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__emoji { font-size: 48px; }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-1);
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    font-size: 15px;
+    color: var(--text-2);
+    max-width: 480px;
+  }
+
+  &__btn {
+    flex-shrink: 0;
+    font-size: 15px;
+    padding: 13px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .support__card {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+  }
+  .support__left { flex-direction: column; }
+}

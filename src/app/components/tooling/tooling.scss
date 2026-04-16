@@ -1,0 +1,128 @@
+.tooling {
+  background: var(--bg-1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: -80px;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(155, 186, 44, 0.08) 0%, transparent 70%);
+    filter: blur(70px);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    right: -80px;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+    filter: blur(70px);
+    pointer-events: none;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 32px;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-2);
+    }
+  }
+
+  &__check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: var(--brand-dim);
+    border: 1px solid var(--brand-glow);
+    border-radius: 50%;
+    color: var(--brand);
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  &__ides {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 8px;
+  }
+
+  &__ide {
+    background: var(--bg-0);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color .2s, box-shadow .2s;
+
+    &:hover {
+      border-color: rgba(155, 186, 44, 0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,.3), 0 0 20px rgba(155, 186, 44, 0.05);
+    }
+  }
+
+  &__ide-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-1);
+    background: linear-gradient(90deg, rgba(155, 186, 44, 0.04) 0%, transparent 60%);
+  }
+
+  &__ide-items {
+    list-style: none;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li {
+      font-size: 13px;
+      color: var(--text-2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &::before {
+        content: '—';
+        color: var(--text-3);
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .tooling__inner { grid-template-columns: 1fr; gap: 48px; }
+}

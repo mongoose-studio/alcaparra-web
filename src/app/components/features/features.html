@@ -1,0 +1,22 @@
+<section class="features" id="features">
+    <div class="container">
+        <div class="features__header">
+            <p class="section-label">El lenguaje</p>
+            <h2 class="section-title">Diseñado para calcular<br>lo que importa</h2>
+            <p class="section-subtitle">
+                AlcaparraLang no es un lenguaje de propósito general.
+                Es un lenguaje especializado en lógica de negocio: preciso, auditable y sin sorpresas.
+            </p>
+        </div>
+
+        <div class="features__grid">
+            @for (feature of features; track feature.title) {
+                <div class="feature-card">
+                    <div class="feature-card__icon" [innerHTML]="feature.icon"></div>
+                    <h3 class="feature-card__title">{{ feature.title }}</h3>
+                    <p class="feature-card__desc" [innerHTML]="feature.description"></p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

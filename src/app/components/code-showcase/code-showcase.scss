@@ -1,0 +1,200 @@
+// Token colors definidos globalmente en styles.scss (necesario para [innerHTML])
+
+.showcase {
+    background: linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 50%, var(--bg-0) 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle,
+            rgba(124, 106, 247, 0.06) 0%,
+            rgba(155, 186, 44, 0.06) 50%,
+            transparent 70%);
+        filter: blur(60px);
+        pointer-events: none;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: 56px;
+        position: relative;
+        z-index: 1;
+
+        .section-subtitle {
+            margin: 0 auto;
+        }
+    }
+
+    &__editor {
+        background: var(--bg-1);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: 0 32px 96px rgba(0, 0, 0, .6),
+        0 0 0 1px var(--border),
+        0 0 80px rgba(124, 106, 247, 0.07),
+        0 0 140px rgba(155, 186, 44, 0.05);
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__tabbar {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        background: var(--bg-0);
+        border-bottom: 1px solid var(--border);
+        padding: 0 16px;
+        height: 42px;
+    }
+
+    &__dots {
+        display: flex;
+        gap: 6px;
+        margin-right: 16px;
+    }
+
+    &__dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+
+        &--red {
+            background: #ff5f57;
+        }
+
+        &--yellow {
+            background: #ffbd2e;
+        }
+
+        &--green {
+            background: #28c840;
+        }
+    }
+
+    &__tabs {
+        display: flex;
+        flex: 1;
+    }
+
+    &__tab {
+        padding: 0 16px;
+        height: 42px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        color: var(--text-2);
+        font-size: 13px;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all .15s;
+        white-space: nowrap;
+
+        &:hover {
+            color: var(--text-1);
+        }
+
+        &--active {
+            color: var(--text-1);
+            border-bottom-color: var(--brand);
+            background: linear-gradient(180deg, transparent 60%, rgba(155, 186, 44, 0.06) 100%);
+        }
+    }
+
+    &__filename {
+        margin-left: auto;
+        font-size: 12px;
+        font-family: 'JetBrains Mono', monospace;
+        color: var(--text-3);
+    }
+
+    &__body {
+        display: flex;
+        overflow-x: auto;
+    }
+
+    &__gutter {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 12px 20px 16px;
+        background: var(--bg-0);
+        border-right: 1px solid var(--border);
+        color: var(--text-3);
+        font-size: 13px;
+        font-family: 'JetBrains Mono', monospace;
+        line-height: 1.8;
+        text-align: right;
+        user-select: none;
+        min-width: 48px;
+    }
+
+    &__code {
+        flex: 1;
+        padding: 20px 28px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13.5px;
+        line-height: 1.8;
+        color: var(--syn-var);
+        overflow-x: auto;
+
+        code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
+            border-radius: 0;
+        }
+    }
+
+    &__statusbar {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        padding: 6px 20px;
+        background: linear-gradient(90deg, var(--brand) 0%, var(--accent) 100%);
+        font-size: 11px;
+        font-weight: 600;
+        color: #fff;
+        font-family: 'JetBrains Mono', monospace;
+
+        span:first-child {
+            font-weight: 700;
+        }
+
+        span:last-child {
+            margin-left: auto;
+        }
+    }
+
+    &__ides {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 32px;
+        flex-wrap: wrap;
+    }
+
+    &__ide-badge {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: var(--bg-1);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        font-size: 13px;
+        color: var(--text-2);
+
+        &__logo{
+            height: 20px;
+        }
+    }
+}

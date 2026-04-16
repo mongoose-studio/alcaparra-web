@@ -1,0 +1,137 @@
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        height: 60px;
+    }
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        flex-shrink: 0;
+    }
+
+    &__logo-icon {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+    }
+
+    &__brand-text {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -.01em;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    &__links {
+        display: flex;
+        gap: 4px;
+        list-style: none;
+        flex: 1;
+    }
+
+    &__link {
+        display: block;
+        padding: 6px 12px;
+        border-radius: var(--radius-sm);
+        font-size: 14px;
+        color: var(--text-2);
+        text-decoration: none;
+        transition: color .15s, background .15s;
+
+        &:hover {
+            color: var(--text-1);
+            background: var(--bg-2);
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+    }
+
+    &__gh {
+        font-size: 13px;
+    }
+
+    &__hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+
+        span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-2);
+            border-radius: 2px;
+            transition: all .2s;
+        }
+    }
+
+    &__kofi-logo {
+        height: 20px;
+    }
+
+    &__github-logo {
+        height: 20px;
+    }
+
+    &__mobile {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        padding: 16px 24px;
+        border-top: 1px solid var(--border);
+
+        &--visible {
+            display: flex;
+        }
+    }
+
+    &__mobile-link {
+        padding: 10px 0;
+        color: var(--text-2);
+        text-decoration: none;
+        font-size: 15px;
+        border-bottom: 1px solid var(--bg-2);
+
+        &:hover {
+            color: var(--text-1);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        &__links, &__actions {
+            display: none;
+        }
+
+        &__hamburger {
+            display: flex;
+            margin-left: auto;
+        }
+    }
+}

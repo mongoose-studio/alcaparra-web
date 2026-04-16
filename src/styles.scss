@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+// ── Tokens de color (inspirados en IntelliJ Dark) ─────────────────────────
+:root {
+    //--bg-0: #1e1f22;
+    //--bg-1: #2b2d30;
+    //--bg-2: #35373b;
+    //--border: #43454a;
+    --bg-0: #000000;
+    --bg-1: #010101;
+    --bg-2: #000000;
+    --border: #1b1c1d;
+
+    --text-1: #dfe1e5;
+    --text-2: #9da0a8;
+    --text-3: #6b6f76;
+
+    --brand: #9bba2c;
+    --brand-dark: #7a9420;
+    --brand-dim: rgba(155, 186, 44, 0.12);
+    --brand-glow: rgba(155, 186, 44, 0.32);
+
+    --accent: #7c6af7;
+    --accent-dark: #6254d4;
+    --accent-dim: rgba(124, 106, 247, 0.10);
+    --accent-glow: rgba(124, 106, 247, 0.28);
+
+    // Syntax (Darcula)
+    --syn-kw: #cc7832;
+    --syn-fn: #ffc66d;
+    --syn-str: #6a8759;
+    --syn-num: #6897bb;
+    --syn-cmt: #808080;
+    --syn-doc: #629755;
+    --syn-tag: #bbb529;
+    --syn-var: #dfe1e5;
+    --syn-mut: #9876aa;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-0);
+    color: var(--text-1);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.font-brand {
+    font-family: 'Didot', 'GFS Didot', 'Bodoni MT', 'Bodoni 72', Georgia, serif;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+// ── Gradiente de marca ────────────────────────────────────────────────────
+.gradient-text {
+    background: linear-gradient(135deg, var(--brand) 10%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+// ── Botones ───────────────────────────────────────────────────────────────
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .18s ease;
+    border: none;
+    white-space: nowrap;
+
+    &-primary {
+        background: var(--brand);
+        color: #1a1a1a;
+
+        &:hover {
+            background: var(--brand-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px var(--brand-glow);
+        }
+    }
+
+    &-outline {
+        background: transparent;
+        color: var(--text-1);
+        border: 1.5px solid var(--border);
+
+        &:hover {
+            border-color: var(--brand);
+            color: var(--brand);
+            transform: translateY(-1px);
+        }
+    }
+
+    &-ghost {
+        background: transparent;
+        color: var(--text-2);
+        padding: 8px 14px;
+
+        &:hover {
+            color: var(--text-1);
+            background: var(--bg-2);
+        }
+    }
+
+    &-kofi {
+        background: #ff5e5b;
+        color: #fff;
+        padding: 8px 24px;
+
+        &:hover {
+            background: #e04d4a;
+            transform: translateY(-0.5px);
+            box-shadow: 0 4px 16px rgba(255, 94, 91, .3);
+        }
+    }
+
+    &-gh {
+        background: transparent;
+        color: #fff;
+        padding: 8px 24px;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.18);
+            transform: translateY(-0.5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .13);
+        }
+    }
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    background: var(--brand-dim);
+    color: var(--brand);
+    border: 1px solid var(--brand-glow);
+}
+
+code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .875em;
+    background: var(--bg-2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--brand);
+}
+
+section {
+    padding: 96px 0;
+}
+
+.section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    color: var(--text-1);
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: var(--text-2);
+    max-width: 580px;
+    line-height: 1.7;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
+}
+
+// ── Syntax token colors (globales — usadas vía [innerHTML] en showcase y hero) ──
+.s-kw    { color: var(--syn-kw); }
+.s-fn    { color: var(--syn-fn); }
+.s-str   { color: var(--syn-str); }
+.s-num   { color: var(--syn-num); }
+.s-cmt   { color: var(--syn-cmt); }
+.s-doc   { color: var(--syn-doc); }
+.s-tag   { color: var(--syn-tag); font-style: italic; }
+.s-var   { color: var(--syn-var); }
+.s-mut   { color: var(--syn-mut); text-decoration: underline; text-decoration-style: dashed; }
+.s-punct { color: var(--text-2); }
+.s-plain { color: var(--syn-var); }
+
+// ── Scrollbar ─────────────────────────────────────────────────────────────
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border);
+}

@@ -1,0 +1,44 @@
+<nav class="nav" [class.nav--open]="menuOpen">
+    <div class="container nav__inner">
+
+        <a href="#" class="nav__brand">
+            <!-- SVG placeholder — reemplazar con logo SVG -->
+            <img src="images/logo-icon.png" alt="AlcaparraLang" class="nav__logo-icon" />
+            <span class="nav__brand-text font-brand">AlcaparraLang</span>
+        </a>
+
+        <ul class="nav__links">
+            <li><a href="#philosophy" class="nav__link">Por qué</a></li>
+            <li><a href="#features" class="nav__link">Lenguaje</a></li>
+            <li><a href="#showcase" class="nav__link">Código</a></li>
+            <li><a href="#usecases" class="nav__link">Casos de uso</a></li>
+            <li><a href="#downloads" class="nav__link">Descargar</a></li>
+        </ul>
+
+        <div class="nav__actions">
+            <a href="https://github.com/mongoose-studio/alcaparra-lang" target="_blank" rel="noopener"
+               class="btn btn-ghost btn-gh nav__gh">
+                <img src="images/gh_logo.svg" alt="GitHub Logo" class="nav__github-logo">
+            </a>
+            <a href="https://ko-fi.com/mongoosestudio" target="_blank" rel="noopener"
+               class="btn btn-kofi">
+                <img src="images/kofi_logo.svg" alt="Ko-Fi Logo" class="nav__kofi-logo">
+            </a>
+        </div>
+
+        <button class="nav__hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="nav__mobile" [class.nav__mobile--visible]="menuOpen">
+        <a href="#features" class="nav__mobile-link" (click)="toggleMenu()">Características</a>
+        <a href="#showcase" class="nav__mobile-link" (click)="toggleMenu()">Código</a>
+        <a href="#downloads" class="nav__mobile-link" (click)="toggleMenu()">Descargar</a>
+        <a href="https://ko-fi.com/mongoosestudio" target="_blank" rel="noopener"
+           class="btn btn-kofi" style="margin-top:8px">
+            Apoyar en <img src="images/kofi_logo.svg" alt="Ko-Fi Logo" class="nav__kofi-logo">
+        </a>
+    </div>
+</nav>

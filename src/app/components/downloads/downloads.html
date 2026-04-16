@@ -1,0 +1,117 @@
+<section class="downloads" id="downloads">
+    <div class="container">
+
+        <div class="downloads__header">
+            <p class="section-label">Descargar</p>
+            <h2 class="section-title">Empieza en minutos</h2>
+            <p class="section-subtitle">
+                Descarga AlcaparraLang — incluye el runtime <code>caper</code> y el servidor LSP.
+                Los plugins de IDE se instalan por separado.
+            </p>
+            <span class="chip downloads__version">
+                v{{ version }} — Early Access
+            </span>
+        </div>
+
+        <!-- ── Instalación rápida via curl ─────────────────────────────── -->
+        <div class="downloads__curl">
+            <p class="downloads__curl-label">Instalación rápida (macOS / Linux)</p>
+            <div class="downloads__curl-box">
+                <span class="downloads__curl-prompt">$</span>
+                <code class="downloads__curl-cmd">{{ curlCommand }}</code>
+                <button class="downloads__curl-copy"
+                        (click)="copyCurl()"
+                        [class.downloads__curl-copy--done]="copied()"
+                        title="Copiar al portapapeles">
+                    @if (copied()) {
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2.5">
+                            <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                    } @else {
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" />
+                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                        </svg>
+                    }
+                </button>
+            </div>
+        </div>
+
+        <!-- ── Instaladores por plataforma ────────────────────────────── -->
+        <div class="downloads__section-title">O descarga el instalador</div>
+        <div class="downloads__grid">
+            @for (ins of installers(); track ins.key) {
+                <a [href]="ins.href" class="installer-card" [class.installer-card--primary]="ins.primary" download>
+                    <div class="installer-card__left">
+                        <span class="installer-card__icon">
+                            <img [src]="ins.osIcon" alt="OS">
+                        </span>
+                        <div>
+                            <p class="installer-card__os">{{ ins.os }}</p>
+                            <p class="installer-card__arch">{{ ins.arch }}</p>
+                        </div>
+                    </div>
+                    <div class="installer-card__right">
+                        <span class="installer-card__format">{{ ins.format }}</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2.5">
+                            <path
+                                d="M12 15V3m0 12-4-4m4 4 4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17" />
+                        </svg>
+                    </div>
+                </a>
+            }
+        </div>
+
+        <!-- ── Plugins IDE (descargas accesorias) ─────────────────────── -->
+        <div class="downloads__plugins">
+            <div class="downloads__plugins-header">
+                <span class="downloads__section-title">Plugins para tu IDE</span>
+                <span class="downloads__plugins-note">Requieren AlcaparraLang instalado</span>
+            </div>
+            <div class="downloads__plugins-grid">
+                @for (plugin of plugins; track plugin.editor) {
+                    <a [href]="plugin.href" class="plugin-card" download>
+                        <div class="plugin-card__editor">
+                            @if (plugin.editorIcon === 'vscode') {
+                                <img src="images/vscode-alt.svg" alt="VSCode" class="plugin-card__editor__logo">
+                                <strong>VS Code</strong>
+                            } @else {
+                                <img src="images/jetbrains.svg" alt="VSCode" class="plugin-card__editor__logo">
+                            }
+                        </div>
+                        <div class="plugin-card__meta">
+                            <code>{{ plugin.format }}</code>
+                            <span class="plugin-card__note">{{ plugin.note }}</span>
+                        </div>
+                        <svg class="plugin-card__arrow" width="14" height="14" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path
+                                d="M12 15V3m0 12-4-4m4 4 4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17" />
+                        </svg>
+                    </a>
+                }
+            </div>
+        </div>
+
+        <!-- ── Instalación manual ──────────────────────────────────────── -->
+        <details class="downloads__manual">
+            <summary>Instalación manual del LSP</summary>
+            <div class="downloads__manual-body">
+                <p>Si prefieres instalar solo el servidor LSP sin el runtime completo:</p>
+                <ol>
+                    <li>Descarga el binario <code>alcaparra-lsp</code> para tu plataforma desde
+                        <a href="https://github.com/mongoose-studio/alcaparra-lsp/releases" target="_blank"
+                           rel="noopener">GitHub Releases</a>
+                    </li>
+                    <li>Colócalo en tu <code>PATH</code> (ej. <code>/usr/local/bin/alcaparra-lsp</code>) y dale permisos
+                        de ejecución: <code>chmod +x alcaparra-lsp</code></li>
+                    <li>Configura la ruta en el plugin de tu IDE si difiere del valor por defecto</li>
+                </ol>
+            </div>
+        </details>
+
+    </div>
+</section>

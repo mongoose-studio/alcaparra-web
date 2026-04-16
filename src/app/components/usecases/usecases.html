@@ -1,0 +1,27 @@
+<section class="usecases" id="usecases">
+    <div class="container">
+        <div class="usecases__header">
+            <p class="section-label">Casos de uso</p>
+            <h2 class="section-title">¿Qué puedes construir?</h2>
+            <p class="section-subtitle">
+                Cualquier proceso que reciba datos, aplique lógica y produzca un resultado
+                estructurado es un candidato ideal para AlcaparraLang.
+            </p>
+        </div>
+
+        <div class="usecases__grid">
+            @for (case of cases; track case.title) {
+                <div class="usecase-card">
+                    <div class="usecase-card__icon" [innerHTML]="case.icon"></div>
+                    <h3 class="usecase-card__title">{{ case.title }}</h3>
+                    <p class="usecase-card__desc">{{ case.description }}</p>
+                    <div class="usecase-card__tags">
+                        @for (tag of case.tags; track tag) {
+                            <span class="usecase-card__tag">{{ tag }}</span>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
