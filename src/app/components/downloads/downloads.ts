@@ -131,7 +131,7 @@ export class DownloadsComponent implements OnInit {
             format: '.zip',
             href: `${BASE}/alcaparra-jetbrains.zip`,
             note: 'Settings → Plugins → Install from disk…',
-            available: true,
+            available: false,
         },
         {
             editor: 'VS Code',
