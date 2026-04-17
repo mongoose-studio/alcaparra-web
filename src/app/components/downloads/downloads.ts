@@ -9,6 +9,7 @@ export interface Installer {
     format: string;
     href: string;
     primary: boolean;
+    available: boolean;
 }
 
 export interface Plugin {
@@ -17,9 +18,11 @@ export interface Plugin {
     format: string;
     href: string;
     note: string;
+    available: boolean;
 }
 
-const BASE = 'https://github.com/mongoose-studio/alcaparra-lsp/releases/latest/download';
+const BASE =
+    'https://github.com/mongoose-studio/alcaparra-lang/releases/download/v0.1.0';
 
 @Component({
     selector: 'app-downloads',
@@ -30,54 +33,60 @@ const BASE = 'https://github.com/mongoose-studio/alcaparra-lsp/releases/latest/d
 })
 export class DownloadsComponent implements OnInit {
     version = '0.1.0';
-    curlCommand = 'curl -fsSL https://alcaparra.mongoosestudio.cl/install.sh | sh';
+    curlCommand =
+        'curl -fsSL https://github.com/mongoose-studio/alcaparra-lang/releases/download/v0.1.0/install.sh | sh';
     copied = signal(false);
 
     installers = signal<Installer[]>([
         {
-            key: "mac_arm",
+            key: 'mac_arm',
             os: 'macOS',
             osIcon: 'images/macos.svg',
             arch: 'Apple Silicon (arm64)',
             format: '.dmg',
-            href: `${BASE}/alcaparra-macos-arm64.dmg`,
+            href: `${BASE}/alcaparra-macos-arm64.pkg`,
             primary: false,
+            available: true,
         },
         {
-            key: "mac_intel",
+            key: 'mac_intel',
             os: 'macOS',
             osIcon: 'images/macos.svg',
             arch: 'Intel (x86_64)',
             format: '.dmg',
-            href: `${BASE}/alcaparra-macos-x86_64.dmg`,
+            href: `${BASE}/alcaparra-macos-x86_64.pkg`,
             primary: false,
+            available: true,
         },
         {
-            key: "linux",
+            key: 'linux',
             os: 'Linux',
             osIcon: 'images/linux.svg',
             arch: 'x86_64',
             format: '.deb',
             href: `${BASE}/alcaparra-linux-x86_64.deb`,
             primary: false,
+            available: true,
         },
         {
-            key: "linux2",
+            key: 'linux2',
             os: 'Linux',
             osIcon: 'images/linux.svg',
             arch: 'x86_64',
             format: '.tar.gz',
             href: `${BASE}/alcaparra-linux-x86_64.tar.gz`,
             primary: false,
+            available: true,
         },
         {
-            key: "windows",
+            key: 'windows',
             os: 'Windows',
             osIcon: 'images/windows.svg',
             arch: 'x86_64',
             format: '.msi',
             href: `${BASE}/alcaparra-windows-x86_64.msi`,
             primary: false,
+            available: false,
         },
     ]);
 
@@ -112,9 +121,7 @@ export class DownloadsComponent implements OnInit {
     }
 
     private setPrimary(key: string) {
-        this.installers.update(list =>
-            list.map(i => ({ ...i, primary: i.key === key }))
-        );
+        this.installers.update((list) => list.map((i) => ({ ...i, primary: i.key === key })));
     }
 
     plugins: Plugin[] = [
@@ -124,6 +131,7 @@ export class DownloadsComponent implements OnInit {
             format: '.zip',
             href: `${BASE}/alcaparra-jetbrains.zip`,
             note: 'Settings → Plugins → Install from disk…',
+            available: true,
         },
         {
             editor: 'VS Code',
@@ -131,6 +139,7 @@ export class DownloadsComponent implements OnInit {
             format: '.vsix',
             href: `${BASE}/alcaparra-vscode.vsix`,
             note: 'Extensions → Install from VSIX…',
+            available: false,
         },
     ];
 
