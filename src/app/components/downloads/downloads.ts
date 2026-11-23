@@ -34,7 +34,7 @@ const BASE =
 export class DownloadsComponent implements OnInit {
     version = '0.1.4';
     curlCommand =
-        'curl -fsSL https://github.com/mongoose-studio/alcaparra-lang/releases/download/v0.1.0/install.sh | sh';
+        'curl -fsSL https://github.com/mongoose-studio/alcaparra-lang/releases/download/v' + this.version + '/install.sh | sh';
     copied = signal(false);
 
     installers = signal<Installer[]>([
