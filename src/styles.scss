@@ -142,7 +142,7 @@ body {
     &-kofi {
         background: #ff5e5b;
         color: #fff;
-        padding: 8px 24px;
+        padding: 8px 18px;
 
         &:hover {
             background: #e04d4a;
@@ -154,12 +154,13 @@ body {
     &-gh {
         background: transparent;
         color: #fff;
-        padding: 8px 24px;
+        padding: 8px 12px;
+        font-size: 14px !important;
 
         &:hover {
-            background: rgba(0, 0, 0, 0.18);
+            background: rgba(255, 255, 255, 0.18);
             transform: translateY(-0.5px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, .13);
+            box-shadow: 0 4px 16px rgba(255, 255, 255, .13);
         }
     }
 }
@@ -222,17 +223,52 @@ section {
 }
 
 // ── Syntax token colors (globales — usadas vía [innerHTML] en showcase y hero) ──
-.s-kw    { color: var(--syn-kw); }
-.s-fn    { color: var(--syn-fn); }
-.s-str   { color: var(--syn-str); }
-.s-num   { color: var(--syn-num); }
-.s-cmt   { color: var(--syn-cmt); }
-.s-doc   { color: var(--syn-doc); }
-.s-tag   { color: var(--syn-tag); font-style: italic; }
-.s-var   { color: var(--syn-var); }
-.s-mut   { color: var(--syn-mut); text-decoration: underline; text-decoration-style: dashed; }
-.s-punct { color: var(--text-2); }
-.s-plain { color: var(--syn-var); }
+.s-kw {
+    color: var(--syn-kw);
+}
+
+.s-fn {
+    color: var(--syn-fn);
+}
+
+.s-str {
+    color: var(--syn-str);
+}
+
+.s-num {
+    color: var(--syn-num);
+}
+
+.s-cmt {
+    color: var(--syn-cmt);
+}
+
+.s-doc {
+    color: var(--syn-doc);
+}
+
+.s-tag {
+    color: var(--syn-tag);
+    font-style: italic;
+}
+
+.s-var {
+    color: var(--syn-var);
+}
+
+.s-mut {
+    color: var(--syn-mut);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+}
+
+.s-punct {
+    color: var(--text-2);
+}
+
+.s-plain {
+    color: var(--syn-var);
+}
 
 // ── Scrollbar ─────────────────────────────────────────────────────────────
 ::-webkit-scrollbar {
@@ -250,4 +286,11 @@ section {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--border);
+}
+
+
+@media (max-width: 900px) {
+    section {
+        padding: 64px 0;
+    }
 }
