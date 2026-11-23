@@ -29,7 +29,7 @@ const BASE = 'https://github.com/mongoose-studio/alcaparra-lsp/releases/latest/d
     styleUrl: './downloads.scss',
 })
 export class DownloadsComponent implements OnInit {
-    version = '0.1.0';
+    version = '0.1.4';
     curlCommand = 'curl -fsSL https://alcaparra.mongoosestudio.cl/install.sh | sh';
     copied = signal(false);
 
